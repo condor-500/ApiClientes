@@ -1,7 +1,8 @@
-package com.minegocio.apiclientesmn.service;
+package com.minegocio.apiclientesmn.imple;
 
 import com.minegocio.apiclientesmn.dto.ClienteDTO;
 import com.minegocio.apiclientesmn.repositories.ClienteRepository;
+import com.minegocio.apiclientesmn.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

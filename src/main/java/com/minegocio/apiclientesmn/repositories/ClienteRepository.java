@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface ClienteRepository extends CrudRepository<ClienteDTO,Long> {
 
-    @Query("SELECT c FROM ClienteDTO c WHERE c.identificationType=?1")
+    @Query("SELECT c FROM ClienteDTO c WHERE c.identificationNumber=?1")
     Optional<ClienteDTO> findByIdentificationNumberContaining(String identification);
 
 

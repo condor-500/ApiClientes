@@ -25,7 +25,7 @@ public class ClienteController {
 
 
     @GetMapping("/buscar")
-    public ResponseEntity<?> getNobre(@RequestParam("parametro")  String parametro , @RequestParam("valor")  String valor){
+    public ResponseEntity<?> getCliente(@RequestParam("parametro")  String parametro , @RequestParam("valor")  String valor){
         if(parametro.equals("1")){
             return ResponseEntity.ok(clienteService.buscarNombre(valor.toUpperCase()));
         }else {
@@ -44,14 +44,38 @@ public class ClienteController {
         return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.guardar(clienteDTO));
     }
 
+    @PostMapping("/update")
+    public ResponseEntity<?> editar(@RequestBody ClienteDTO clienteDTO){
+        Optional<ClienteDTO> cliente = clienteService.buscarId(clienteDTO.getIdCliente());
+        Map<String, String> resultado = new HashMap<>();
+        resultado.put("fecha",String.valueOf(new Date()));
+        if(cliente.isPresent()){
+            ClienteDTO clienteEditado = cliente.get();
+            clienteEditado.setEmail(clienteDTO.getEmail());
+            clienteEditado.setNames(clienteDTO.getNames());
+            clienteEditado.setCellphone(clienteDTO.getCellphone());
+            clienteEditado.setIdentificationType(clienteDTO.getIdentificationType());
+            return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.guardar(clienteEditado));
+        }else {
+            resultado.put("mensaje","No existe cliente para modificar");
+            return ResponseEntity.badRequest().body(resultado);
+        }
+
+
+
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id){
         Optional<ClienteDTO> clienteDTO = clienteService.buscarId(id);
+        Map<String, String> resultado = new HashMap<>();
+        resultado.put("fecha",String.valueOf(new Date()));
         if(clienteDTO.isPresent()){
             clienteService.eliminar(id);
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.badRequest().body(resultado);
         }else{
-           return ResponseEntity.badRequest().body(Collections.singletonMap("mensaje","No existe Cliente"));
+            resultado.put("mensaje","No se encuentra cliente a eliminar");
+           return ResponseEntity.badRequest().body(resultado);
         }
 
 

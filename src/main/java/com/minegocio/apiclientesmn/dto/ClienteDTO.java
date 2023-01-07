@@ -11,21 +11,22 @@ import java.util.*;
 @Getter
 @Setter
 @EqualsAndHashCode
+@ToString
 public class ClienteDTO implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCliente;
 
-    @Column(name = "IDENTIFICACION")
+    @Column(name = "identificationType")
     private Long identificationType;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumns({
-            @JoinColumn(name = "IDENTIFICACION", referencedColumnName = "CODE_IDENTIFICACION", insertable = false, updatable = false) })
+            @JoinColumn(name = "identificationType", referencedColumnName = "CODE_IDENTIFICACION", insertable = false, updatable = false) })
     private TipoIdentificacionDTO tipoIdentificacion;
 
-    @Column(name = "identificationType",length = 13)
+    @Column(name = "identificationNumber",length = 13)
     private String identificationNumber;
 
     private String names;

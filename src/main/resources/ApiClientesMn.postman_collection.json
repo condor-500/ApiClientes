@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "c6448863-9622-4cc1-9ff2-cf0cbe25f21f",
+		"name": "ApiClientesMn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11299794"
+	},
+	"item": [
+		{
+			"name": "listarCliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crearCliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identificationType\":3,\r\n    \"identificationNumber\":\"04010965498\",\r\n    \"names\":\"MARIO MORALES\",\r\n    \"email\":\"prueb@gmail.com\",\r\n    \"cellphone\":\"0996512365\",\r\n    \"directionDTO\": [\r\n        {\r\n        \"mainAddress\":\"SALINAS RUTIA\",\r\n        \"provincia\": \"IMBABURA\",\r\n        \"ciudad\": \"OTAVALO\",\r\n        \"tipoDireccion\": \"PRINCIPAL\"\r\n    }\r\n    ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/cliente/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"cliente",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarCliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCliente\": 3,\r\n    \"identificationType\": 1,\r\n    \"identificationNumber\": \"040106213\",\r\n    \"names\": \"JUAN RICARDO JACOME\",\r\n    \"email\": \"asdasd@gmail.com\",\r\n    \"cellphone\": \"099651236\",\r\n    \"directionDTO\": [\r\n        {\r\n            \"mainAddress\": \"JUAN CARLOS SORINAS\",\r\n            \"provincia\": \"PASTAZA\",\r\n            \"ciudad\": \"NAPO\",\r\n            \"tipoDireccion\": \"PRIMARIA\"\r\n        },\r\n        {\r\n            \"mainAddress\": \"ibarra\",\r\n            \"provincia\": \"sad\",\r\n            \"ciudad\": \"23\",\r\n            \"tipoDireccion\": \"PRI\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/cliente/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"cliente",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/cliente/buscar?parametro=2&valor=0400765037",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"cliente",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "parametro",
+							"value": "2",
+							"description": "1 Nombre - 2 Cedula"
+						},
+						{
+							"key": "valor",
+							"value": "0400765037"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eliminarCliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/cliente/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"cliente",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listarDireccion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/direccion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"direccion"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscarDireccionCliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8002/api/v1/direccion/buscar?cedula=1715196321",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"direccion",
+						"buscar"
+					],
+					"query": [
+						{
+							"key": "cedula",
+							"value": "1715196321"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CrearDireccionClientes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"mainAddress\": \"BATAN\",\r\n        \"provincia\": \"PICHINCHA\",\r\n        \"ciudad\": \"QUITO\",\r\n        \"tipoDireccion\": \"SEGUNDARIA\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8002/api/v1/direccion/040106213",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8002",
+					"path": [
+						"api",
+						"v1",
+						"direccion",
+						"040106213"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
