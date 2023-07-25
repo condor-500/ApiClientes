@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/direccion")
@@ -36,9 +35,9 @@ public class DireccionController {
 
     @PostMapping("/{cedula}")
     public ResponseEntity<?> agregarDireccion(@RequestBody DireccionDTO direccionDTO, @PathVariable String cedula ){
-        Optional<ClienteDTO> cliente = clienteService.buscarCedula(cedula);
-        logger.info(String.valueOf(direccionDTO) +" - "+ cliente.get().getIdCliente() );
-        direccionService.guardarDireciones(direccionDTO, cliente.get().getIdCliente()) ;
+        //Optional<ClienteDTO> cliente = clienteService.buscarCedula(cedula);
+       // logger.info(String.valueOf(direccionDTO) +" - "+ cliente.get().getIdCliente() );
+        //direccionService.guardarDireciones(direccionDTO, cliente.get().getIdCliente()) ;
         return ResponseEntity.ok().build();
     }
 

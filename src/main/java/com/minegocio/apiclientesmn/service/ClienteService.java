@@ -9,10 +9,11 @@ public interface ClienteService {
 
     List<ClienteDTO> listarClientes();
     Optional<ClienteDTO> buscarId(Long id);
-    Optional<ClienteDTO> buscarCedula(String identification);
+    List<ClienteDTO> searchClients (String valor);
+    List<ClienteDTO> buscarCedula(String identification);
     List<ClienteDTO> buscarNombre(String nombre);
     ClienteDTO guardar(ClienteDTO clienteDTO);
-    void eliminar(Long id);
+    boolean eliminar(Long id);
 
 
 }

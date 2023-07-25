@@ -7,5 +7,4 @@ import lombok.Setter;
 @Setter
 public class SearchClientVI {
     public String parametro ;
-    public String valor ;
 }

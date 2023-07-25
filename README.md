@@ -21,5 +21,9 @@ $ mvn spring-boot:run
 
 ###Postman
 
-- Importar el archivo resources/ApiClientesMn.postman_collection.json 
+- Importar el archivo resources/ApiClientesMn.postman_collection.json
+
+
+###Swagger
+- Ingresar a la url :  http://localhost:8002/swagger-ui/index.html#/
 
