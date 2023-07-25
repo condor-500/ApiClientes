@@ -36,10 +36,8 @@ public class ClienteController {
 
     @PostMapping("/")
     public ResponseEntity<?> crearCliente(@RequestBody ClienteDTO clienteDTO){
-
        if(! clienteDTO.getIdentificationNumber().isEmpty() && clienteService.buscarCedula(clienteDTO.getIdentificationNumber()).isPresent()){
             return ResponseEntity.badRequest().body(Collections.singletonMap("mensaje","Ya existe cliente"));
-
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(clienteService.guardar(clienteDTO));
     }
@@ -67,17 +65,9 @@ public class ClienteController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> eliminar(@PathVariable Long id){
-        Optional<ClienteDTO> clienteDTO = clienteService.buscarId(id);
         Map<String, String> resultado = new HashMap<>();
         resultado.put("fecha",String.valueOf(new Date()));
-        if(clienteDTO.isPresent()){
-            clienteService.eliminar(id);
-            return ResponseEntity.badRequest().body(resultado);
-        }else{
-            resultado.put("mensaje","No se encuentra cliente a eliminar");
-           return ResponseEntity.badRequest().body(resultado);
-        }
-
-
+           boolean valor =  clienteService.eliminar(id);
+            return ResponseEntity.badRequest().body(valor);
     }
 }
